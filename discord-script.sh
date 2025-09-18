@@ -2,10 +2,12 @@
 
 # Variables
 source ~/.config/user-dirs.dirs # imports the users downloads directory
+currentuser=$(whoami)
 installedVersion=$(cat /usr/share/discord/resources/build_info.json | jq '.version')
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 NOCOLOR='\033[0m'
+
 # How to use colors: echo -e "Color is ${RED}Something ... ${GREEN}new." - I think that counts.
 
 # Navigating to the Download-/Work-Directory
@@ -31,10 +33,10 @@ if [ ! -d Discord ]; then
 fi
 
 # Comparing versions
-if [[ "$installedVersion" == "$downloadedVersion" ]]; then
-   echo -e "${GREEN}Your Discord is already up to date"
-   exit # Task successfully failed
-fi
+#if [[ "$installedVersion" == "$downloadedVersion" ]]; then
+#   echo -e "${GREEN}Your Discord is already up to date"
+#   exit # Task successfully failed
+#fi
 
 # Remove the existing /usr/share/discord directory if it exists
 echo "Checking if Discord already exists under /usr/share/"
@@ -49,7 +51,7 @@ sudo mv Discord/ /usr/share/discord/
 # Creating/updating shortcut for application menu
 echo "Creating shortcut for application menu"
 if [ ! -f "~/.local/share/applications/discord.desktop" ]; then
-   cp /usr/share/discord/discord.desktop ~/.local/share/applications/ # copy .desktop file to ~/.local/share/applications so it'll show up in application launcher
+   cp /usr/share/discord/discord.desktop /home/$currentuser/.local/share/applications/ # copy .desktop file to ~/.local/share/applications so it'll show up in application launcher
 fi
 
 # Clean up
