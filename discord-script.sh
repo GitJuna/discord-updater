@@ -33,10 +33,10 @@ if [ ! -d Discord ]; then
 fi
 
 # Comparing versions
-#if [[ "$installedVersion" == "$downloadedVersion" ]]; then
-#   echo -e "${GREEN}Your Discord is already up to date"
-#   exit # Task successfully failed
-#fi
+if [[ "$installedVersion" == "$downloadedVersion" ]]; then
+   echo -e "${GREEN}Your Discord is already up to date"
+   exit # Task successfully failed
+fi
 
 # Remove the existing /usr/share/discord directory if it exists
 echo "Checking if Discord already exists under /usr/share/"

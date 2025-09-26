@@ -15,9 +15,7 @@ You can use this script in two scenarios.\
 
 Step 1: Download the repo\
 Step 2: Execute the bash file without sudo\
-<code>
-./discord-updater.sh
-</code>\
+<code>./discord-updater.sh</code>\
 Step 3: Enter password
 
 ## What I will maybe add in the future
