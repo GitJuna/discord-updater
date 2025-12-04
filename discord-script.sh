@@ -16,7 +16,7 @@ cd $XDG_DOWNLOAD_DIR
 # Downloading archive
 if [ ! -f discord.tar.gz ]; then
    echo "Downloading discord"
-   wget - -O discord.tar.gz 'https://discord.com/api/download?platform=linux&format=tar.gz'
+   wget - -O discord.tar.gz 'https://discord.com/api/download?platform=linux&format=tar.gz' -P $XDG_DOWNLOAD_DIR
 fi
 if [ ! -f discord.tar.gz ]; then
    echo -e "${RED}Error: Archive \"discord.tar.gz\" not found."
@@ -34,6 +34,8 @@ fi
 
 # Comparing versions
 if [[ "$installedVersion" == "$downloadedVersion" ]]; then
+   echo "$installedVersion"
+   echo "$downloadedVersion"
    echo -e "${GREEN}Your Discord is already up to date"
    exit # Task successfully failed
 fi
